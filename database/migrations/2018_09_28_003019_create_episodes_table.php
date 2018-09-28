@@ -22,7 +22,11 @@ class CreateEpisodesTable extends Migration
             $table->text('description')->nullable(false);
             $table->string('thumbnail')->nullable(false);
             $table->string('video')->nullable(false);
+            $table->integer('series_seriesID')->unsigned();
             $table->timestamps();
+            $table->foreign('series_seriesID')
+                ->references('seriesID')->on('series')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
