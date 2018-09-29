@@ -16,3 +16,10 @@ Route::get('/', 'WelcomePageController@index')->name('welcomePage');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::prefix('library')->group(function () {
+    Route::prefix('series/{seriesID}')->group(function () {
+        Route::get('/episodes','EpisodesController@seriesEpisodesList')->name('series');
+        Route::get('/episode/{episodeID}','EpisodesController@episodeDetails')->name('episodeDetails');
+
+    });
+});

@@ -42,11 +42,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        @foreach($series AS $item)
-                        <li class="nav-item">
-                            <a class="nav-link">{{$item->title}}</a>
-                        </li>
-                        @endforeach
+
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -75,6 +71,11 @@
                                 </div>
                             </li>
                         @endguest
+                        @foreach($series AS $item)
+                            <li class="nav-item">
+                                <a href="{{route('series',$item->seriesID)}}" class="nav-link">{{$item->title}}</a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

@@ -11,4 +11,15 @@ class episodes extends Model
     protected $primaryKey = 'episodeID';
 
 
+    public static function getSeriesEpisodes($seriesID)
+    {
+        $series = series::find($seriesID);
+
+        return [
+            'series' => $series,
+            'episodes' =>$series->episodes
+        ];
+
+    }
+
 }
