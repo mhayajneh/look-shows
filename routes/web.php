@@ -27,3 +27,8 @@ Route::prefix('library')->group(function () {
 });
 
 route::get('/search','EpisodesController@search')->name('search');
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('/users','admin\UsersController@index')->name('usersList');
+});

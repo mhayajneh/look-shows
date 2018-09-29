@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Redirect;
 
 class EpisodesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->only(['episodeDetails','episodeLike','seriesFollow']);
+    }
+
     public function seriesEpisodesList($seriesID)
     {
         $episodes = episodes::getSeriesEpisodes($seriesID);
