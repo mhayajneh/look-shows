@@ -66,7 +66,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        $profile_image_url = User::storeImage();
+        $profile_image_url = User::storeFiles('image');
 
         return User::create([
             'name' => $data['name'],

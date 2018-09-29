@@ -31,16 +31,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public static function storeImage()
+    public static function storeFiles($fileName)
     {
         $request = request();
         //The request function returns the current request instance or obtains an input item.
-        $profileImage = $request->file('image');
-        $profileImageSaveAsName = time() . Auth::id() . "-profile." .
-            $profileImage->getClientOriginalExtension();
-        $upload_path = 'profile_images/';
-        $profile_image_url = $upload_path . $profileImageSaveAsName;
-        $profileImage->move($upload_path, $profileImageSaveAsName);
-        return $profile_image_url;
+        $file = $request->file($fileName);
+        $fileSaveAsName = time() . Auth::id() . "." .
+            $file->getClientOriginalExtension();
+        $upload_path = '/uploads/';
+        $file_url = $upload_path . $fileSaveAsName;
+        $file->move($upload_path, $fileSaveAsName);
+        return $file_url;
     }
 }
