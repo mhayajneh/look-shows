@@ -14,4 +14,13 @@ class series extends Model
     {
         return $this->hasMany('App\episodes');
     }
+
+    public static function searchForSeries($request)
+    {
+        $series = series::where('title',$request['search'])->first();
+        if ($series != null)
+            return true;
+        else
+            return false;
+    }
 }

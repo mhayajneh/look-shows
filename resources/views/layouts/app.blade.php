@@ -35,7 +35,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li>
-                                <input class="form-control" placeholder="Search">
+                            <form action="{{route('search')}}" method="GET">
+                                <input class="form-control" name="search" placeholder="Search">
+                            </form>
                         </li>
                     </ul>
 
@@ -82,6 +84,9 @@
         </nav>
 
         <main >
+            @if(session('alert_warning'))
+            <div class="alert alert-warning">{{session('alert_warning')}}</div>
+            @endif
             @yield('content')
         </main>
     </div>

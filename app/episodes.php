@@ -23,6 +23,15 @@ class episodes extends Model
 
     }
 
+    public static function searchForEpisodes($request)
+    {
+        $episode = episodes::where('title',$request['search'])->first();
+        if ($episode != null)
+            return true;
+        else
+            return false;
+    }
+
 
 
 }

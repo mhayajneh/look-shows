@@ -25,3 +25,5 @@ Route::prefix('library')->group(function () {
 
     });
 });
+
+route::get('/search','EpisodesController@search')->name('search');

@@ -36,4 +36,20 @@ class EpisodesController extends Controller
         usersFollowsSeries::followSeries($seriesID);
         return Redirect::back();
     }
+    public function search(request $request)
+    {
+        if (series::searchForSeries($request->all())) {
+            $series = series::where('title', $request['search'])->first();
+            return Redirect::route('series', $series->seriesID);
+        }
+        elseif(episodes::searchForEpisodes($request->all())){
+            $episode = episodes::where('title',$request['search'])->first();
+            return Redirect::route('episodeDetails',array($episode->series_seriesID,$episode->episodeID));
+
+        }else
+        {
+            return Redirect::back()->with('alert_warning','There\'s no such series or episode');
+        }
+
+    }
 }
