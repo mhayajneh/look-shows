@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\episodes;
 use App\series;
+use App\usersFollowsSeries;
 use App\usersLikesEpisodes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -27,6 +28,12 @@ class EpisodesController extends Controller
     public function episodeLike($episodeID)
     {
         usersLikesEpisodes::likeEpisode($episodeID);
+        return Redirect::back();
+    }
+
+    public function seriesFollow($seriesID)
+    {
+        usersFollowsSeries::followSeries($seriesID);
         return Redirect::back();
     }
 }

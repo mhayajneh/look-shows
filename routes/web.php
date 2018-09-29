@@ -11,6 +11,8 @@
 |
 */
 Route::get('/episode/{episodeID}/like','EpisodesController@episodeLike')->name('episodeLike');
+Route::get('/series/{episodeID}/follow','EpisodesController@seriesFollow')->name('seriesFollow');
+
 Route::get('/', 'WelcomePageController@index')->name('welcomePage');
 
 Auth::routes();

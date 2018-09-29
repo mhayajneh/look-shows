@@ -4,7 +4,7 @@
     <div class="container">
 
         <!-- Page Heading -->
-        <h1 class="my-4 text-center">{{$episodes['series']->title}}  <a class="btn btn-warning">Follow</a></h1>
+        <h1 class="my-4 text-center">{{$episodes['series']->title}}  <a href="{{route('seriesFollow',$episodes['series']->seriesID)}}" class="btn btn-warning">@if(!$episodes['isSeriesFollowed']) Follow @else unfollow @endif</a></h1>
 
 
         <div class="row">

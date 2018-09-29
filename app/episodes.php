@@ -17,7 +17,8 @@ class episodes extends Model
 
         return [
             'series' => $series,
-            'episodes' =>$series->episodes
+            'episodes' =>$series->episodes,
+            'isSeriesFollowed'=> usersFollowsSeries::seriesIsFollowed($seriesID)
         ];
 
     }
