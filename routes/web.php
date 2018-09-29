@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/episode/{episodeID}/like','EpisodesController@episodeLike')->name('episodeLike');
 Route::get('/', 'WelcomePageController@index')->name('welcomePage');
 
 Auth::routes();

@@ -9,7 +9,7 @@
         <div class="col-lg-12">
 
             <!-- Title -->
-            <h1 class="mt-4">{{$episode->title}}       <a class="btn btn-primary">Like</a></h1>
+            <h1 class="mt-4">{{$episode->title}}      <a class="btn btn-primary" href="{{route('episodeLike',$episode->episodeID)}}">@if(!$episode->isLiked) Like @else Unlike @endif</a> </h1>
 
 
 
