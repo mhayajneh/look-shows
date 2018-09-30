@@ -8,6 +8,18 @@
         <li class="breadcrumb-item active">Users</li>
     </ol>
 
+    @if(session('success_alert'))
+        <div class="alert alert-success">{{session('success_alert')}}</div>
+    @endif
+
+    @if(session('warning_alert'))
+        <div class="alert alert-warning">{{session('warning_alert')}}</div>
+    @endif
+    @if(session('danger_alert'))
+        <div class="alert alert-danger">{{session('danger_alert')}}</div>
+    @endif
+
+
     <!-- DataTables Example -->
     <div class="card mb-3">
         <div class="card-header">
@@ -21,6 +33,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Joined</th>
+                        <th>Controls</th>
                     </tr>
                     </thead>
                     <tfoot>
@@ -28,6 +41,9 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Joined</th>
+                        @role('admin')
+                        <th>Controls</th>
+                        @endrole
                     </tr>
                     </tfoot>
                     <tbody>
@@ -36,6 +52,18 @@
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->created_at}}</td>
+                        @role('admin')
+                        <td>
+                            <a  href="{{route('users.edit',$user->id)}}" class="btn btn-primary">Edit</a>
+
+                            <form method="POST" action="{{route('users.destroy',$user->id)}}">
+                                @csrf
+                                @method('DELETE')
+                                <button onclick="return confirm('Are you sure?')"  class="btn btn-danger">Delete</button>
+                            </form>
+                            <a href="{{route('users.show',$user->id)}}" class="btn btn-warning">View</a>
+                        </td>
+                        @endrole
                     </tr>
                         @endforeach
 

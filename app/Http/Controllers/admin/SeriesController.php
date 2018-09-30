@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Redirect;
 
 class SeriesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('role:admin,editor');
+    }
     protected function validateSeries()
     {
         return $this->validate(Request(),[

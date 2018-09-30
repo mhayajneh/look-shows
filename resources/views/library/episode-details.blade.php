@@ -21,7 +21,7 @@
 
             <!-- Preview video -->
             <video width="400" controls>
-                <source src="mov_bbb.mp4" type="video/mp4">
+                <source src="/{{$episode->thumbnail}}" type="video/mp4">
                 Your browser does not support HTML5 video.
             </video>
             <hr>
@@ -40,11 +40,5 @@
 </div>
 <!-- /.container -->
 
-<!-- Footer -->
-<footer class="py-5 bg-dark">
-    <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
-    </div>
-    <!-- /.container -->
-</footer>
+
     @endsection

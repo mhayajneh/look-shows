@@ -2,6 +2,10 @@ body {
     padding-top: 54px;
 
 }
+main
+{
+    min-height: 800px;
+}
 
 @media (min-width: 992px) {
     body {

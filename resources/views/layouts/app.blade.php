@@ -33,12 +33,22 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+
+
                     <ul class="navbar-nav mr-auto">
-                        <li>
+
+                        @role(['admin','editor'])
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('adminPanel') }}">Admin panel</a>
+                        </li>
+                        @endrole
+
+                        <li class="nav-item">
                             <form action="{{route('search')}}" method="GET">
                                 <input class="form-control" name="search" placeholder="Search">
                             </form>
                         </li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -90,5 +100,12 @@
             @yield('content')
         </main>
     </div>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; LookShows 2018</p>
+        </div>
+        <!-- /.container -->
+    </footer>
 </body>
 </html>

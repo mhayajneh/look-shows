@@ -31,7 +31,7 @@ route::get('/search','EpisodesController@search')->name('search');
 
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard/','admin\DashboardController@index')->name('adminPanel');
-    Route::get('/users','admin\UsersController@index')->name('usersList');
+    Route::resource('users','admin\UsersController');
     Route::resource('series','admin\SeriesController');
     Route::resource('episodes','admin\EpisodesController');
 });

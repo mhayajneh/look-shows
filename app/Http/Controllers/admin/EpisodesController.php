@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Redirect;
 
 class EpisodesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('role:admin,editor');
+    }
     protected function validateEpisodes()
     {
         return $this->validate(Request(),[
