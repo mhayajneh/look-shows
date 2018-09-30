@@ -12,7 +12,7 @@ class SeriesController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('role:admin,editor');
+        $this->middleware('role:admin|editor');
     }
     protected function validateSeries()
     {

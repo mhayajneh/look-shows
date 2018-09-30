@@ -20,8 +20,8 @@
             <hr>
 
             <!-- Preview video -->
-            <video width="400" controls>
-                <source src="/{{$episode->thumbnail}}" type="video/mp4">
+            <video width="1000" height="500" controls>
+                <source src="/{{$episode->video}}" type="video/mp4">
                 Your browser does not support HTML5 video.
             </video>
             <hr>

@@ -15,6 +15,7 @@ class EpisodesController extends Controller
     {
         $this->middleware('auth')->only(['episodeDetails','episodeLike','seriesFollow']);
         $this->middleware('role:user')->only(['episodeDetails','episodeLike','seriesFollow']);
+
     }
 
     public function seriesEpisodesList($seriesID)

@@ -13,8 +13,8 @@ class UsersController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('role:admin');
-        $this->middleware('role:editor')->only(['index']);
+        $this->middleware('role:admin')->except(['index']);
+        $this->middleware('role:admin|editor')->only(['index']);
     }
     protected function validateUsers()
     {

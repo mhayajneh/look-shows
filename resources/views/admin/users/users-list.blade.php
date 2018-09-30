@@ -33,7 +33,9 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Joined</th>
+                        @role('admin')
                         <th>Controls</th>
+                        @endrole
                     </tr>
                     </thead>
                     <tfoot>
