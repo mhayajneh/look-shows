@@ -21,9 +21,9 @@
                     </div>
                 </div>
             @endforeach
-
         </div>
-        <!-- /.row -->
+        {!! $episodes->render() !!}
+     <!-- /.row -->
 
 
 
