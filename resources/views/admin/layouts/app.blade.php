@@ -83,8 +83,8 @@
                 <span>Manage Episodes</span>
             </a>
             <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                <a class="dropdown-item" href="login.html">Login</a>
-                <a class="dropdown-item" href="register.html">Register</a>
+                <a class="dropdown-item" href="{{route('episodes.index')}}">Episodes list</a>
+                <a class="dropdown-item" href="{{route('episodes.create')}}">Episode create</a>
             </div>
         </li>
 

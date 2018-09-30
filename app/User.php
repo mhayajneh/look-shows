@@ -38,7 +38,7 @@ class User extends Authenticatable
         $file = $request->file($fileName);
         $fileSaveAsName = time() . Auth::id() . "." .
             $file->getClientOriginalExtension();
-        $upload_path = '/uploads/';
+        $upload_path = 'uploads/';
         $file_url = $upload_path . $fileSaveAsName;
         $file->move($upload_path, $fileSaveAsName);
         return $file_url;
